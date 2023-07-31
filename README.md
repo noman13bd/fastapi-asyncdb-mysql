@@ -24,10 +24,9 @@ then enter into the container `docker exec -it [container-id] bash`
 then log into mysql `mysql -u root -p`
 create DB
 create user `CREATE USER 'heroes_my'@'%' IDENTIFIED BY 'heroes_my';`
-and then grant privileges ```
-GRANT ALL ON *.* TO 'heroes_my'@'%';
-FLUSH PRIVILEGES;
-```
+and then grant privileges 
+`GRANT ALL ON *.* TO 'heroes_my'@'%';`
+`FLUSH PRIVILEGES;`
 
 ## env file
 update environment variables. for example mysql url will be like `mysql+asyncmy://heroes_my:heroes_my@0.0.0.0:3307/heroes_db`
