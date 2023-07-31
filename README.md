@@ -17,6 +17,29 @@ Here is a short description of python packages used in the article (just to make
 6. [Alembic](https://alembic.sqlalchemy.org/en/latest/) - Alembic is a lightweight database migration tool for usage
    with the SQLAlchemy Database Toolkit for Python.
 
+## mysql 
+`docker run --name=mysql1 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql/mysql-server:8.0
+`
+then enter into the container `docker exec -it [container-id] bash`
+then log into mysql `mysql -u root -p`
+create DB
+create user `CREATE USER 'heroes_my'@'%' IDENTIFIED BY 'heroes_my';`
+and then grant privileges ```
+GRANT ALL ON *.* TO 'heroes_my'@'%';
+FLUSH PRIVILEGES;
+```
+
+## env file
+update environment variables. for example mysql url will be like `mysql+asyncmy://heroes_my:heroes_my@0.0.0.0:3307/heroes_db`
+
+## Alembic Migration and commands
+Alembic Initilization 
+`alembic init -t async migrations`
+
+Alembic migration file generation `alembic revision --autogenerate -m "heroes"`
+
+Alembic run migration `alembic upgrade head`
+
 ## Deployment
 Use this command to build Docker container: `docker build --build-arg ENV_FILE=".env" -t hero-app -f Dockerfile .`
 And this command to start container: `docker run -d -p "8080:80" --name hero-app hero-app`
