@@ -20,3 +20,6 @@ Here is a short description of python packages used in the article (just to make
 ## Deployment
 Use this command to build Docker container: `docker build --build-arg ENV_FILE=".env" -t hero-app -f Dockerfile .`
 And this command to start container: `docker run -d -p "8080:80" --name hero-app hero-app`
+
+
+Source: https://medium.com/@estretyakov/the-ultimate-async-setup-fastapi-sqlmodel-alembic-pytest-ae5cdcfed3d4
