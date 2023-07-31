@@ -41,13 +41,17 @@ Alembic run migration `alembic upgrade head`
 
 ## Deployment
 Use this command to build Docker container: `docker build --build-arg ENV_FILE=".env" -t hero-app -f Dockerfile .`
+
 And this command to start container: `docker run -d -p "8080:80" --name hero-app hero-app`
 
 
 ## poetry related commands
 add plugin: `poetry add [plugin-name]`
+
 add plugin under specific group: `poetry add [plugin-name] --group [group name]`
+
 install plugins from pyproject file: `poetry install`
+
 remove plugin: `poetry remove [plugin-name]`
 
 
